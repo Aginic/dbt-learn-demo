@@ -11,7 +11,11 @@ nation as (
 ),
 
 customer_nation as (
-
+    select
+        customers.*,
+        nation.name as nation
+    from customers
+    left join nation using (nation_id)
 ),
 
 final as (
