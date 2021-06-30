@@ -1,0 +1,12 @@
+version: 2
+
+macros:
+  - name: test_is_even
+    description: Schema test to ensure a column only contains even numbers
+    arguments:
+      - name: model
+        type: string
+        description: This is set automatically by dbt
+      - name: column_name
+        type: string
+        description: The name of the column you want to test
