@@ -1,31 +1,32 @@
 version: 2
 
 models:
-  - name: stg_customers
+  - name: stg_customer
     columns:
       - name: customer_id
         tests:
           - unique
           - not_null
 
-  - name: stg_orders
+  - name: stg_order
     columns:
       - name: order_id
         tests:
           - unique
           - not_null
-      - name: status
+      - name: customer_id
+        tests:
+          - relationships:
+              to: ref('stg_customer')
+              field: customer_id          
+      - name: order_priority
         tests:
           - accepted_values:
-              values: ['placed', 'shipped', 'completed', 'return_pending', 'returned']
+              values: ['1-URGENT', '2-HIGH', '3-MEDIUM', '4-NOT SPECIFIED', '5-LOW']
 
-  - name: stg_payments
+  - name: stg_nation
     columns:
-      - name: payment_id
+      - name: nation_id
         tests:
           - unique
           - not_null
-      - name: payment_method
-        tests:
-          - accepted_values:
-              values: ['credit_card', 'coupon', 'bank_transfer', 'gift_card']
