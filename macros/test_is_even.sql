@@ -1,3 +1,4 @@
+-- example schema test
 {% macro test_is_even(model, column_name) %}
 
 with validation as (
