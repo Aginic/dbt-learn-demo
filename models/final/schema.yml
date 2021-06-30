@@ -29,5 +29,6 @@ models:
       - name: total_order_amount
         description: Total value (AUD) of a customer's orders
         tests:
-          - is_even
+          - is_even:
+              severity: warn
 
